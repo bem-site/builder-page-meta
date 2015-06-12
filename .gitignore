@@ -16,3 +16,5 @@ coverage
 data
 .builder
 lib
+*-compiled.js
+*-compiled.js.map
