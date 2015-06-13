@@ -45,7 +45,7 @@
     "jshint": "node_modules/.bin/jshint .",
     "eslint": "eslint src/**/*.es6",
     "jscs": "node_modules/.bin/jscs -c .jscs.js .",
-    "codestyle": "npm run jshint && npm run eslint && npm run jscs",
+    "codestyle": "npm run jshint && npm run jscs",
     "compile": "babel src --optional runtime --out-dir lib",
     "pretest": "npm run codestyle && npm run compile",
     "prepublish": "npm run compile",
