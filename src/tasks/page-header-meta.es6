@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import vow from 'vow';
-import builderCore from 'bs-builder-core';
+import PageBase from './page-base';;
 
-export default class PageHeaderMeta extends builderCore.tasks.Base {
+export default class PageHeaderMeta extends PageBase {
 
     static getLoggerName() {
         return module;
