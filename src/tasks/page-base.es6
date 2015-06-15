@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import vow from 'vow';
 import builderCore from 'bs-builder-core';
 
 export default class PageBase extends builderCore.tasks.Base {
@@ -76,7 +74,7 @@ export default class PageBase extends builderCore.tasks.Base {
             if(url.length) {
                 result.push(url);
             }
-        };
+        }
         return result;
     }
 }

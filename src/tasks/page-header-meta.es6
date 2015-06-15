@@ -1,6 +1,4 @@
-import _ from 'lodash';
-import vow from 'vow';
-import PageBase from './page-base';;
+import PageBase from './page-base';
 
 export default class PageHeaderMeta extends PageBase {
 

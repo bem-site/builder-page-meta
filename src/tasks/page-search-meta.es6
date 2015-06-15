@@ -1,8 +1,6 @@
-import _ from 'lodash';
-import vow from 'vow';
-import builderCore from 'bs-builder-core';
+import PageBase from './page-base';
 
-export default class PageSearchMeta extends builderCore.tasks.Base {
+export default class PageSearchMeta extends PageBase {
 
     static getLoggerName() {
         return module;
@@ -13,7 +11,7 @@ export default class PageSearchMeta extends builderCore.tasks.Base {
      * @returns {string}
      */
     static getName() {
-        return 'create page titles';
+        return 'create page search meta-information';
     }
 
     /**
@@ -22,6 +20,28 @@ export default class PageSearchMeta extends builderCore.tasks.Base {
      */
     run(model) {
         this.beforeRun();
+
+        var languages = this.getBaseConfig().getLanguages(),
+            pagesMap = this.getPagesMap(model.getPages(), languages);
+
+        model.getPages().forEach(page => {
+            var urlSet = this.getParentUrls(page);
+            languages.forEach(language => {
+                page[language].meta = {
+                    breadcrumbs: urlSet.map(url => {
+                        return {
+                            url: url,
+                            title: pagesMap.get(url).get(language)
+                        };
+                    }),
+                    fields: {
+                        type: 'doc',
+                        keywords: page[language].tags || []
+                    }
+                };
+                //TODO add cases for library entities
+            });
+        });
 
         return Promise.resolve(model);
     }

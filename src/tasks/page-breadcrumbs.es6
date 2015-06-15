@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import vow from 'vow';
 import PageBase from './page-base';
 
 export default class PageBreadcrumbs extends PageBase {

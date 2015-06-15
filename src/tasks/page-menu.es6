@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import vow from 'vow';
 import builderCore from 'bs-builder-core';
 
 export default class PageMenu extends builderCore.tasks.Base {
