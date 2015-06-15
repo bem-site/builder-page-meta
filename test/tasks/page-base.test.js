@@ -1,5 +1,4 @@
-var vow = require('vow'),
-    should = require('should'),
+var should = require('should'),
     Config = require('bs-builder-core/lib/config'),
     PageBase = require('../../lib/tasks/page-base');
 

@@ -1,5 +1,4 @@
-var vow = require('vow'),
-    Config = require('bs-builder-core/lib/config'),
+var Config = require('bs-builder-core/lib/config'),
     Model = require('bs-builder-core/lib/model/model'),
     PageHeaderTitle = require('../../lib/tasks/page-header-title');
 
