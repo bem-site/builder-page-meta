@@ -24,6 +24,12 @@ export default class PageHeaderTitle extends PageBase {
         var languages = this.getBaseConfig().getLanguages(),
             pagesMap = this.getPagesMap(model.getPages(), languages);
 
+        /*
+           Для каждой языковой версии каждой страницы создаем
+           поле header.title в котором находится строка состоящая из
+           соответствующих title-ов всех родительских страниц начиная от корневой
+           и заканчивая текущей страницей. title-ы страниц разделены символом "/".
+        */
         model.getPages().forEach(page => {
             var urlSet = this.getParentUrls(page).reverse();
             languages.forEach(language => {
@@ -32,10 +38,14 @@ export default class PageHeaderTitle extends PageBase {
                     page[language].header.title = urlSet.map(url => {
                         return pagesMap.get(url).get(language);
                     }).join('/');
+
+                    this.logger.verbose(
+                        `page header title: url => ${page.url} lang => ${language} title: => ${page[language].header.title}`);
                 }
             });
         });
 
+        this.logger.info(`Successfully finish task "${this.constructor.getName()}"`);
         return Promise.resolve(model);
     }
 }

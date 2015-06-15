@@ -43,6 +43,7 @@ export default class PageSearchMeta extends PageBase {
             });
         });
 
+        this.logger.info(`Successfully finish task "${this.constructor.getName()}"`);
         return Promise.resolve(model);
     }
 }

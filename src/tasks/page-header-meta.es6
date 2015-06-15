@@ -48,12 +48,24 @@ export default class PageHeaderMeta extends PageBase {
         this.beforeRun();
 
         var languages = this.getBaseConfig().getLanguages();
+
+        /*
+         Для каждой языковой версии каждой страницы создаем
+         поле header.meta в котором находится структура содержащая мета-информацию для header страницы.
+          - ogUrl
+          - ogType
+          - description
+          - ogDescription
+          - keywords
+          - ogKeywords
+         */
         model.getPages().forEach(page => {
             languages.forEach(language => {
                 this._addMetaToPage(page, language);
             });
         });
 
+        this.logger.info(`Successfully finish task "${this.constructor.getName()}"`);
         return Promise.resolve(model);
     }
 }
