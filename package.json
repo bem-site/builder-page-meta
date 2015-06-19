@@ -1,6 +1,6 @@
 {
   "name": "bs-builder-page-meta",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Plugin for bs-builder system for creating page structures",
   "repository": {
     "type": "git",
